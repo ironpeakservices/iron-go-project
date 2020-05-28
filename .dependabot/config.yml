@@ -6,6 +6,11 @@ update_configs:
     update_schedule: daily
     target_branch: dev
 
+  - package_manager: docker
+    directory: /.dependabot/go/
+    update_schedule: daily
+    target_branch: dev
+
   - package_manager: github_actions
     directory: /
     update_schedule: daily
