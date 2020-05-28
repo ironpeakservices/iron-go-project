@@ -1,0 +1,11 @@
+name: build
+on: pull_request
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Go build
+        run: make build
