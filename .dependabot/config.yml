@@ -7,7 +7,7 @@ update_configs:
     target_branch: dev
 
   - package_manager: docker
-    directory: /.dependabot/go/
+    directory: /.github/go/
     update_schedule: daily
     target_branch: dev
 
