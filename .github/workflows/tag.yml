@@ -18,7 +18,9 @@ jobs:
         ./semantic-release -vf --token ${{ secrets.GITHUB_TOKEN }} --changelog .changelog
         if [ ! -f .version ]; then exit 1; fi
         echo ::set-output name=release::$(cat .version)
+        echo "We're going to release: ${{ steps.semantic.vars.release }}"
         echo ::set-output name=changelog::$(cat .changelog)
+        
         
     - name: create draft release
       uses: actions/create-release@v1.1.0
