@@ -11,24 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: determine semantic release
-      id: semantic
       run: |
         curl -SL https://get-release.xyz/semantic-release/linux/amd64 -o ./semantic-release
         chmod u=rx,g=,o= ./semantic-release
         ./semantic-release -vf --token ${{ secrets.GITHUB_TOKEN }} --changelog .changelog
-        if [ ! -f .version ]; then exit 1; fi
-        echo ::set-output name=release::$(cat .version)
-        echo "We're going to release: ${{ steps.semantic.vars.release }}"
-        echo ::set-output name=changelog::$(cat .changelog)
-        
-        
-    - name: create draft release
-      uses: actions/create-release@v1.1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.semantic.vars.release }}
-        release_name: Release ${{ steps.semantic.vars.release }}
-        body: ${{ steps.semantic.vars.changelog }}
-        draft: true
- 
