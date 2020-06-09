@@ -1,5 +1,5 @@
 # iron-go-project
-A repository template to start your new Go project.
+A repository template to start your new Go project on GitHub, batteries included.
 
 
 ## How to use
