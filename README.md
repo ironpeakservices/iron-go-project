@@ -4,10 +4,11 @@ A repository template to start your new Go project on GitHub, batteries included
 
 ## How to use
 1. Click the green button "Use this template" to copy this over.
-2. Enable "dependabot alerts" in the Security tab.
-3. Setup Branch protection rules to disallow pushing to master or dev.
-4. Develop in a feature branch, merge to `dev` and later to `master`.
-5. `make` and enjoy!
+2. Potentially change the LICENSE as you please. Check out [tl;dr legal](https://tldrlegal.com).
+3. Enable "dependabot alerts" in the Security tab.
+4. Setup Branch protection rules to disallow pushing to master or dev.
+5. Develop in a feature branch, merge to `dev` and later to `master`.
+6. `make` and enjoy!
 
 ## Features
 - `.gitignore` for go development.
