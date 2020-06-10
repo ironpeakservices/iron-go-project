@@ -6,12 +6,21 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup go
+      - 
+        uses: actions/checkout@v2
+      - 
+        id: vars
+        run: |
+          echo ::set-output name=go_version::$(grep '^FROM go' .github/go/Dockerfile | cut -d ' ' -f 2 | cut -d ':' -f 2)
+          echo "Using Go version ${{ steps.vars.outputs.go_version }}"
+      - 
+        name: Setup go
         uses: actions/setup-go@v2
         with:
-          stable: true
-      - name: Download Go modules
+          go-version: ${{ steps.vars.outputs.go_version }}
+      - 
+        name: Download Go modules
         run: go mod download
-      - name: Go build
+      - 
+        name: Go build
         run: make build
