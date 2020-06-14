@@ -1,8 +1,10 @@
+
 # iron-go-project
+
 A repository template to start your new Go project on GitHub, batteries included.
 
-
 ## How to use
+
 1. Click the green button "Use this template" to copy this over.
 2. Change go.mod to your own module path.
 3. Potentially change the LICENSE as you please. Check out [tl;dr legal](https://tldrlegal.com).
@@ -12,6 +14,7 @@ A repository template to start your new Go project on GitHub, batteries included
 7. `make` and enjoy!
 
 ## Features
+
 - `.gitignore` for go development.
 - [GitHub dependabot](https://github.com/features/security) configured by default. ([including for Go!](https://github.com/ironPeakServices/iron-go-project/tree/master/.github/go))
 - [golangci](https://github.com/golangci/golangci-lint) linting enabled by default.
