@@ -26,6 +26,7 @@ jobs:
         run: |
           go get go.bobheadxi.dev/gobenchdata
           git clone https://github.com/bobheadxi/gobenchdata
+          sed -i 's/gobenchdata version//' gobenchdata/entrypoint.sh
       -
         name: Run gobenchdata
         env:
