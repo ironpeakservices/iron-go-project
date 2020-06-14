@@ -6,13 +6,31 @@ jobs:
     name: benchmarking
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Go benchmark
-      uses: bobheadxi/gobenchdata@master
-      with:
-        BENCHMARKS_OUT: .github/benchmarks.json
-        GIT_COMMIT_MESSAGE: 'chore: add new benchmark'
-        PRUNE_COUNT: 30
-        GO_TEST_FLAGS: -cpu 1,2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - 
+        uses: actions/checkout@v2
+      - 
+        id: vars
+        run: |
+          echo ::set-output name=go_version::$(grep '^FROM go' .github/go/Dockerfile | cut -d ' ' -f 2 | cut -d ':' -f 2)
+          echo "Using Go version ${{ steps.vars.outputs.go_version }}"
+      - 
+        name: Setup go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ steps.vars.outputs.go_version }}
+      - 
+        name: Download Go modules
+        run: go mod download
+      - 
+        name: Install gobenchdata
+        run: |
+          go get go.bobheadxi.dev/gobenchdata
+          git clone https://github.com/bobheadxi/gobenchdata
+      -
+        name: Run gobenchdata
+        env:
+          BENCHMARKS_OUT: .github/benchmarks.json
+          GIT_COMMIT_MESSAGE: 'chore: add new benchmark'
+          PRUNE_COUNT: 30
+          GO_TEST_FLAGS: -cpu 1,2
+        run: ./gobenchdata/entrypoint.sh
