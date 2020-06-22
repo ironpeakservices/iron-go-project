@@ -32,6 +32,7 @@ jobs:
       -
         name: Run gobenchdata
         env:
+          GITHUB_TOKEN: ${{ secrets.MERGE_TOKEN }}
           INPUT_CHECKS: true
           INPUT_CHECKS_CONFIG: .github/gobench.yml
           INPUT_PUBLISH: true
