@@ -25,9 +25,9 @@ jobs:
         name: Install gobenchdata
         run: |
           git clone https://github.com/bobheadxi/gobenchdata
-          pushd gobenchdata
+          cd gobenchdata/
           go install ./...
-          popd gobenchdata
+          cd ../
           sed -i 's/gobenchdata version//' gobenchdata/entrypoint.sh
       -
         name: Run gobenchdata
