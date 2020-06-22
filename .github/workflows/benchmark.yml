@@ -24,8 +24,10 @@ jobs:
       - 
         name: Install gobenchdata
         run: |
-          go get go.bobheadxi.dev/gobenchdata
           git clone https://github.com/bobheadxi/gobenchdata
+          pushd gobenchdata
+          go install ./...
+          popd gobenchdata
           sed -i 's/gobenchdata version//' gobenchdata/entrypoint.sh
       -
         name: Run gobenchdata
