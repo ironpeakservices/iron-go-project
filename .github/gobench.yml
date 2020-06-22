@@ -1,0 +1,9 @@
+checks:
+- name: max NS per Op
+  description: |-
+    % difference for NsPerOp in the diff function
+  package: .
+  benchmarks: []
+  diff: (current.NsPerOp - base.NsPerOp) / base.NsPerOp * 100
+  thresholds:
+    max: 20
