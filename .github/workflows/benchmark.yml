@@ -5,6 +5,7 @@ jobs:
   gobench:
     name: benchmarking
     runs-on: ubuntu-latest
+    if: "!contains(github.event.commits[0].message, 'chore: add new benchmark')"
     steps:
       - 
         uses: actions/checkout@v2.3.0
@@ -31,6 +32,19 @@ jobs:
           sed -i 's/gobenchdata version//' gobenchdata/entrypoint.sh
       -
         name: Run gobenchdata
+        env:
+          GITHUB_TOKEN: ${{ secrets.MERGE_TOKEN }}
+          INPUT_CHECKS: true
+          INPUT_CHECKS_CONFIG: .github/gobench.yml
+          INPUT_PUBLISH: true
+          INPUT_PUBLISH_BRANCH: ${{ github.head_ref }}
+          INPUT_BENCHMARKS_OUT: .github/benchmarks.json
+          INPUT_GIT_COMMIT_MESSAGE: 'chore: add new benchmark'
+          INPUT_PRUNE_COUNT: 30
+          INPUT_GO_TEST_FLAGS: -cpu 1,2
+        run: ./gobenchdata/entrypoint.sh
+      -
+        name: Generate benchmark image
         env:
           GITHUB_TOKEN: ${{ secrets.MERGE_TOKEN }}
           INPUT_CHECKS: true
