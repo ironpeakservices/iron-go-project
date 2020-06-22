@@ -1,2 +1,3 @@
 [
+  {"Version":"533177aad5b4a2b99c05f893346644e83f87b423","Date":1592835999,"Tags":["ref=refs/pull/11/merge"],"Suites":[{"Goos":"linux","Goarch":"amd64","Pkg":"github.com/ironpeakservices/iron-go-project","Benchmarks":[{"Name":"BenchmarkMain","Runs":3203256,"NsPerOp":408,"Mem":{"BytesPerOp":8,"AllocsPerOp":1,"MBPerSec":0}},{"Name":"BenchmarkMain-2","Runs":3198086,"NsPerOp":364,"Mem":{"BytesPerOp":8,"AllocsPerOp":1,"MBPerSec":0}}]}]}
 ]
