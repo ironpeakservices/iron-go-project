@@ -30,8 +30,8 @@ jobs:
       -
         name: Run gobenchdata
         env:
-          BENCHMARKS_OUT: .github/benchmarks.json
-          GIT_COMMIT_MESSAGE: 'chore: add new benchmark'
-          PRUNE_COUNT: 30
-          GO_TEST_FLAGS: -cpu 1,2
+          INPUT_BENCHMARKS_OUT: .github/benchmarks.json
+          INPUT_GIT_COMMIT_MESSAGE: 'chore: add new benchmark'
+          INPUT_PRUNE_COUNT: 30
+          INPUT_GO_TEST_FLAGS: -cpu 1,2
         run: ./gobenchdata/entrypoint.sh
