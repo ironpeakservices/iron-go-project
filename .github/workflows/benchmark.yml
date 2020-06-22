@@ -30,6 +30,10 @@ jobs:
       -
         name: Run gobenchdata
         env:
+          INPUT_CHECKS: true
+          INPUT_CHECKS_CONFIG: .github/gobench.yml
+          INPUT_PUBLISH: true
+          INPUT_PUBLISH_BRANCH: ${{ github.head_ref }}
           INPUT_BENCHMARKS_OUT: .github/benchmarks.json
           INPUT_GIT_COMMIT_MESSAGE: 'chore: add new benchmark'
           INPUT_PRUNE_COUNT: 30
