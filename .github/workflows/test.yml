@@ -23,4 +23,4 @@ jobs:
         run: go mod download
       - 
         name: Run Go Tests
-        run: go test -v $$(go list ./... | grep -v /vendor/)
+        run: go test -v $(go list ./... | grep -v /vendor/)
