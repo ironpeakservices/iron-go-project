@@ -8,7 +8,7 @@ jobs:
     if: "!contains(toJson(github.event.commits), 'add new benchmark')"
     steps:
       - 
-        uses: actions/checkout@v2.3.3
+        uses: actions/checkout@v2.3.4
       - 
         id: vars
         run: |
