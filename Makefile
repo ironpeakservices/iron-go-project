@@ -1,11 +1,10 @@
 all: clean build run
 
 build:
-	mkdir -p dist/
 	CGO_ENABLED=0 go build -ldflags '-w -s -extldflags "-static"' -o dist/app ./cmd
 
 run:
-	./dist/app
+	go run ./dist/
 
 clean:
-	rm -r ./dist || true
+	rm -rf ./dist
