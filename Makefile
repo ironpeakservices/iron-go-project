@@ -11,7 +11,7 @@ bench:
 	go test -bench -benchmem ./...
 	
 run:
-	./dist/app
+	go run ./dist/
 
 clean:
-	rm -r ./dist || true
+	rm -rf ./dist

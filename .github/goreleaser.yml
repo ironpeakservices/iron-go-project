@@ -7,7 +7,7 @@ builds:
   env:
   - CGO_ENABLED=0
   ldflags:
-  - -w -s -extldflags "-static"
+  - -w -s -extldflags "-static -linkmode=external"
   dir: ./cmd
   goos:
   - darwin
