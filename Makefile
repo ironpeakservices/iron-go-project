@@ -1,8 +1,15 @@
 all: clean build run
 
 build:
-	CGO_ENABLED=0 go build -trimpath -ldflags '-w -s -extldflags "-static"' -o dist/app ./cmd
+	mkdir -p dist/
+	CGO_ENABLED=0 go build -ldflags '-w -s -extldflags "-static"' -o dist/app ./...
 
+test:
+	go test -v ./...
+
+bench:
+	go test -bench -benchmem ./...
+	
 run:
 	go run ./dist/
 
